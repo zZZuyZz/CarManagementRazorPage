@@ -22,7 +22,6 @@ namespace CarManagementDAO
                 return instance;
             }
         }
-
         public CarInformationDAO()
         {
             _db = new CarManagementContext();
@@ -31,7 +30,21 @@ namespace CarManagementDAO
         {
             return _db.CarInformations.ToList();
         }
-
+        public List<CarInformation> GetCarsByOwnerId(int id, string? key)
+        {
+            if (key == null)
+            {
+                return _db.CarInformations.Where(x => x.OwnerId == id).ToList();
+            }
+            else
+            {
+                return _db.CarInformations.Where(x => x.OwnerId == id && x.CarDescription.Contains(key)).ToList();
+            }
+        }
+        public List<CarInformation> GetCarsByStatus()
+        {
+            return _db.CarInformations.Where(x => x.CarStatus != 1).ToList();
+        }
         public CarInformation GetCarById(int code)
         {
             return _db.CarInformations.Where(x => x.Id.Equals(code)).FirstOrDefault();

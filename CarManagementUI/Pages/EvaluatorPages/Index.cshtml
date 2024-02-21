@@ -5,8 +5,13 @@
     ViewData["Title"] = "Index";
 }
 
+<form method="post" asp-page-handler="Logout">
+    <button type="submit">Logout</button>
+</form>
 <h1>Index</h1>
-
+<form method="post" asp-page-handler="Search">
+    <button type="submit">Search car not evaluated</button>
+</form>
 <table class="table">
     <thead>
         <tr>

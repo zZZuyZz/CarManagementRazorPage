@@ -41,6 +41,16 @@ namespace CarManagementService
             return _carInformationRepository.GetCars();
         }
 
+        public List<CarInformation> GetCarsByOwner(int id, string? key)
+        {
+            return _carInformationRepository.GetCarsByOwner(id, key);
+        }
+
+        public List<CarInformation> GetCarsByStatus()
+        {
+            return _carInformationRepository.GetCarsByStatus();
+        }
+
         public List<CarClass> GetClasses()
         {
             return _carInformationRepository.GetClasses();

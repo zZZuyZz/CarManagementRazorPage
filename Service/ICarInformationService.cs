@@ -10,6 +10,8 @@ namespace CarManagementService
     public interface ICarInformationService
     {
         public List<CarInformation> GetCars();
+        public List<CarInformation> GetCarsByOwner(int id, string? key);
+        public List<CarInformation> GetCarsByStatus();
         public List<Brand> GetBrands();
         public List<CarClass> GetClasses();
 

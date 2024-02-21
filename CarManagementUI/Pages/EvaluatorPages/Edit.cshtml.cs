@@ -41,7 +41,13 @@ namespace CarManagementUI.Pages.EvaluatorPages
         {
             try
             {
-                CarInformation.OwnerId = CarInformation.OwnerId;
+                CarInformation.CarStatus = 1;
+                CarInformation.OwnerId = _context.GetCarById(CarInformation.Id).OwnerId;
+                CarInformation.CarDescription = _context.GetCarById(CarInformation.Id).CarDescription;
+                CarInformation.CarColor = _context.GetCarById(CarInformation.Id).CarColor;
+                CarInformation.SeatNumber = _context.GetCarById(CarInformation.Id).SeatNumber;
+                CarInformation.YearCreate = _context.GetCarById(CarInformation.Id).YearCreate;
+                CarInformation.BrandId = _context.GetCarById(CarInformation.Id).BrandId;
                 _context.UpdateCar(CarInformation);
             }
             catch (DbUpdateConcurrencyException)

@@ -23,8 +23,22 @@ namespace CarManagementUI.Pages.EvaluatorPages
 
         public async Task OnGetAsync()
         {
+            CarInformation = new List<CarInformation>();
             CarInformation = _context.GetCars();
             
         }
+        public async Task<IActionResult> OnPostSearchAsync()
+        {
+            CarInformation = new List<CarInformation>();
+            CarInformation = _context.GetCarsByStatus();
+            return Page();
+        }
+        public async Task<IActionResult> OnPostLogoutAsync()
+        {
+
+            HttpContext.Session.Clear();
+            return RedirectToPage("/Login");
+        }
+
     }
 }

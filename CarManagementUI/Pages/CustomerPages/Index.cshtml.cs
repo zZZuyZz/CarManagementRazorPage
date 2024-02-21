@@ -21,11 +21,30 @@ namespace CarManagementUI.Pages.CustomerPages
         }
 
         public IList<CarInformation> CarInformation { get;set; } = default!;
+        [BindProperty]
+        public string SearchKey { get; set; }
+
 
         public async Task OnGetAsync()
         {
-  
-            CarInformation = _context.GetCars();
+            CarInformation = new List<CarInformation>();
+            CarInformation = _context.GetCarsByOwner(HttpContext.Session.GetInt32("Id").Value, null);
+        }
+        public IActionResult OnPost()
+        {
+            if (SearchKey == null)
+            {
+                return RedirectToAction("./index");
+            }
+            CarInformation = new List<CarInformation>();
+            CarInformation = _context.GetCarsByOwner(HttpContext.Session.GetInt32("Id").Value, SearchKey);
+            return Page();
+        }
+        public async Task<IActionResult> OnPostLogoutAsync()
+        {
+
+            HttpContext.Session.Clear();
+            return RedirectToPage("/Login");
         }
     }
 }

@@ -23,5 +23,9 @@ namespace CarManagementRepo
         public List<CarInformation> GetCars() => CarInformationDAO.Instance.GetCars();
 
         public bool UpdateCar(CarInformation account) => CarInformationDAO.Instance.UpdateCar(account);
+
+        public List<CarInformation> GetCarsByStatus() => CarInformationDAO.Instance.GetCarsByStatus();
+
+        public List<CarInformation> GetCarsByOwner(int id, string? key) => CarInformationDAO.Instance.GetCarsByOwnerId(id, key);
     }
 }

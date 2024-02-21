@@ -4,12 +4,21 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<form method="post" asp-page-handler="Logout">
+    <button type="submit">Logout</button>
+</form>
 <h1>Index</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<div class="col-md-12">
+    <form method="post">
+        <input type="text" name="SearchKey" />
+        <input type="submit" value="Search" class="btn btn-info" />
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
