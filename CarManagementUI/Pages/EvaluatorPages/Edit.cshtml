@@ -1,0 +1,60 @@
+﻿@page
+@model CarManagementUI.Pages.EvaluatorPages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CarInformation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CarInformation.Id" />
+            <div class="form-group">
+                <label asp-for="CarInformation.ClassId" class="control-label"></label>
+                <select asp-for="CarInformation.ClassId" class="form-control" asp-items="ViewBag.ClassId"></select>
+                <span asp-validation-for="CarInformation.ClassId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarInformation.PriceForNormalDay" class="control-label"></label>
+                <input asp-for="CarInformation.PriceForNormalDay" class="form-control" />
+                <span asp-validation-for="CarInformation.PriceForNormalDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarInformation.PriceForWeekend" class="control-label"></label>
+                <input asp-for="CarInformation.PriceForWeekend" class="form-control" />
+                <span asp-validation-for="CarInformation.PriceForWeekend" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarInformation.PriceForHoliday" class="control-label"></label>
+                <input asp-for="CarInformation.PriceForHoliday" class="form-control" />
+                <span asp-validation-for="CarInformation.PriceForHoliday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarInformation.PricePerHour" class="control-label"></label>
+                <input asp-for="CarInformation.PricePerHour" class="form-control" />
+                <span asp-validation-for="CarInformation.PricePerHour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarInformation.PricePerKm" class="control-label"></label>
+                <input asp-for="CarInformation.PricePerKm" class="form-control" />
+                <span asp-validation-for="CarInformation.PricePerKm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
